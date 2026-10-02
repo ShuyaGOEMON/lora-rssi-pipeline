@@ -90,5 +90,5 @@ The code is released under the MIT License, Copyright (c) 2026 Shuya Ishikawa; s
 
 If you use the dataset, please cite:
 
-Dataset paper: (submitted)
-Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
+- Dataset paper: (submitted)
+- Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
