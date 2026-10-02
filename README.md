@@ -90,8 +90,7 @@ The code is released under the MIT License, Copyright (c) 2026 Shuya Ishikawa; s
 
 If you use the dataset, please cite:
 
-> **TBD** (dataset paper)
->
-> Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
+Dataset paper: [TBD]
+Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
 
 To cite this code, use the DOI of the software release on Zenodo (**TBD**, assigned at the first release).
