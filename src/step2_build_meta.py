@@ -73,10 +73,10 @@ def main() -> None:
     meta_dir.mkdir(parents=True, exist_ok=True)
 
     tx = build_tx_config()
-    tx.to_csv(meta_dir / "tx_config.csv", index=False)
+    tx.to_csv(meta_dir / "tx_config.csv", index=False, lineterminator="\n")
 
     dd = build_data_dictionary()
-    dd.to_csv(meta_dir / "data_dictionary.csv", index=False)
+    dd.to_csv(meta_dir / "data_dictionary.csv", index=False, lineterminator="\n")
 
     # the dictionary must describe exactly the columns of the published file
     fingerprints = OUT_DIR / "raw" / "rssi_samples.csv"
