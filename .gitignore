@@ -1,0 +1,5 @@
+# raw logs are distributed on Zenodo, not on GitHub
+raw_logs/*
+!raw_logs/.gitkeep
+
+__pycache__/
