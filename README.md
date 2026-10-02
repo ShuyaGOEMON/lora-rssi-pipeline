@@ -15,7 +15,7 @@ lora-rssi-pipeline/
 │   ├── step1_build_dataset.py   # raw logs -> raw/rssi_samples.csv
 │   ├── step2_build_meta.py      # -> meta/tx_config.csv, meta/data_dictionary.csv
 │   └── step3_verify_dataset.py  # checks against the confirmed statistics and the published file
-├── LICENSE.txt
+├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
@@ -84,7 +84,7 @@ The values in `config.py` are taken from the specification of the published data
 
 ## License
 
-The code is released under the MIT License, Copyright (c) 2026 Shuya Ishikawa; see `LICENSE.txt`. The dataset is distributed separately under CC BY 4.0.
+The code is released under the MIT License, Copyright (c) 2026 Shuya Ishikawa; see `LICENSE`. The dataset is distributed separately under CC BY 4.0.
 
 ## Citation
 
