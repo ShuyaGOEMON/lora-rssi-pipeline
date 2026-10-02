@@ -31,8 +31,8 @@ pip install -r requirements.txt
 
 ## Getting the data
 
-1. Download the ten raw session logs from the Zenodo record of the dataset (https://doi.org/10.5281/zenodo.22932995), where they are provided as individual CSV files.
-2. Place the ten CSV files directly in `raw_logs/`:
+1. Download the zip archive from the Zenodo record of the dataset (https://doi.org/10.5281/zenodo.22932995) and extract it. Its top-level folder is `LoRaRSSIFingerprint/`.
+2. Copy the ten CSV files in `LoRaRSSIFingerprint/raw_logs/` directly into `raw_logs/` of this repository:
 
 ```
 20260515-2.csv  20260518-1.csv  20260518-2.csv  20260520-1.csv  20260522-2.csv
