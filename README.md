@@ -75,7 +75,7 @@ Step 1, in order:
 
 1. reads each session log and checks its record count;
 2. pivots the log from long (one row per packet) to wide (one row per sample, one column per transmitter);
-3. applies the transmitter-to-column assignment of the session (the logger recorded the four transmitters in reverse order in sessions 8-10; see `config.py`);
+3. applies the transmitter-to-column assignment of the session (in sessions 8-10 the four transmitter units were installed at each other's positions by operator error, which reversed the assignment in the log; see `config.py`);
 4. derives `elapsed_s` from the earliest record of the same session in `raw_logs/` and drops the raw timestamp, whose absolute date is unusable (no RTC, no NTP);
 5. asserts that every reference point comes from exactly one session and checks the expected row and reference point counts;
 6. writes the file sorted by floor, x, y and sample_index, with integer values (a missing RSSI is an empty cell) and CRLF line endings.
@@ -90,5 +90,5 @@ The code is released under the MIT License, Copyright (c) 2026 Shuya Ishikawa; s
 
 If you use the dataset, please cite:
 
-- Dataset paper: (submitted)
-- Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
+Dataset paper: [TBD]
+Dataset: Zenodo, https://doi.org/10.5281/zenodo.22932995
