@@ -50,10 +50,10 @@ SAMPLES_PER_RP = 50
 
 # --- transmitter-to-column assignment --------------------------------------
 # assignment[logger_tx_id - 1] = published column index.
-# Sessions 8-10 (25 June 2026) were logged in reverse order: logger tx_id 1
-# carried the transmitter installed on the 8F, 2 -> 7F, 3 -> 4F, 4 -> 3F.
-# The cause was not determined; both a logging error and a physical exchange
-# of the units remain possible (the transmitters were reinstalled daily).
+# In sessions 8-10 (25 June 2026) the four transmitter units were installed
+# at each other's positions by operator error, which reversed the assignment
+# in the log: logger tx_id 1 carried the transmitter installed on the 8F,
+# 2 -> 7F, 3 -> 4F, 4 -> 3F.
 # Confirmed against the raw logs 2026-09-25: at RP (0, 10, 5), directly above
 # the 4F transmitter, the logger reports tx_id 3 at -54.4 dBm on average, and
 # at the 8F RPs beside the 8F transmitter it reports tx_id 1 at -38.9 dBm.
@@ -65,7 +65,8 @@ COLUMN_ASSIGNMENT: dict[int, tuple[int, int, int, int]] = {
     10: (4, 3, 2, 1),
 }
 
-# Receiving antenna configuration: A = DTH-RPLR-R1, B = DTH-RPLR-R2.
+# Receiver LoRa HAT configuration: A = DTH-RPLR-R1 with an E220-900T22S(JP)
+# module, B = DTH-RPLR-R2 with an E220-900T22S(JP)R2 module.
 RECEIVER_CONFIG: dict[int, str] = {s: ("A" if s <= 7 else "B") for s in SESSIONS}
 
 # --- reference point curation ----------------------------------------------

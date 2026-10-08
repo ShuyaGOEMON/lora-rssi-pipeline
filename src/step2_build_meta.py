@@ -22,7 +22,7 @@ TX_CONFIG = [
     dict(tx_id=4, floor=8, x=0, y=0, placement="elevator_hall"),
 ]
 RADIO = dict(
-    model="E220-900T22S(JP)",
+    lora_module="E220-900T22S(JP)",
     frequency_mhz=920.6,
     channel="ch0",
     tx_power_dbm=13,
@@ -30,12 +30,12 @@ RADIO = dict(
     bandwidth_khz=125,
     payload_bytes=200,
     tx_interval_s=2,
-    antenna="DTH-RPLR-R1",
+    lora_hat="DTH-RPLR-R1",
 )
 TX_CONFIG_COLUMNS = [
-    "tx_id", "floor", "x", "y", "placement", "model", "frequency_mhz",
+    "tx_id", "floor", "x", "y", "placement", "lora_module", "frequency_mhz",
     "channel", "tx_power_dbm", "spreading_factor", "bandwidth_khz",
-    "payload_bytes", "tx_interval_s", "antenna",
+    "payload_bytes", "tx_interval_s", "lora_hat",
 ]
 
 # data_dictionary.csv : one row per published column (12 rows)
@@ -51,7 +51,7 @@ DATA_DICTIONARY = [
     ("rssi_tx2", "integer", "dBm", "Received power of the transmitter installed on the 4F", "empty cell"),
     ("rssi_tx3", "integer", "dBm", "Received power of the transmitter installed on the 7F", "empty cell"),
     ("rssi_tx4", "integer", "dBm", "Received power of the transmitter installed on the 8F", "empty cell"),
-    ("receiver_config", "string", "", "Receiving antenna configuration: A = DTH-RPLR-R1 (sessions 1-7), B = DTH-RPLR-R2 (sessions 8-10)", ""),
+    ("receiver_config", "string", "", "Receiver LoRa HAT configuration: A = DTH-RPLR-R1 with an E220-900T22S(JP) module (sessions 1-7), B = DTH-RPLR-R2 with an E220-900T22S(JP)R2 module (sessions 8-10)", ""),
 ]
 DATA_DICTIONARY_COLUMNS = ["column", "type", "unit", "definition", "missing_representation"]
 
@@ -73,6 +73,7 @@ def main() -> None:
     meta_dir.mkdir(parents=True, exist_ok=True)
 
     tx = build_tx_config()
+    # LF on every OS (the pandas default is os.linesep, i.e. CRLF on Windows)
     tx.to_csv(meta_dir / "tx_config.csv", index=False, lineterminator="\n")
 
     dd = build_data_dictionary()
