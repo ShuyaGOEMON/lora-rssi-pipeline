@@ -30,7 +30,7 @@ RADIO = dict(
     bandwidth_khz=125,
     payload_bytes=200,
     tx_interval_s=2,
-    lora_hat="DTH-RPLR-R1",
+    lora_hat="DTH-RPLR",
 )
 TX_CONFIG_COLUMNS = [
     "tx_id", "floor", "x", "y", "placement", "lora_module", "frequency_mhz",
@@ -51,7 +51,7 @@ DATA_DICTIONARY = [
     ("rssi_tx2", "integer", "dBm", "Received power of the transmitter installed on the 4F", "empty cell"),
     ("rssi_tx3", "integer", "dBm", "Received power of the transmitter installed on the 7F", "empty cell"),
     ("rssi_tx4", "integer", "dBm", "Received power of the transmitter installed on the 8F", "empty cell"),
-    ("receiver_config", "string", "", "Receiver LoRa HAT configuration: A = DTH-RPLR-R1 with an E220-900T22S(JP) module (sessions 1-7), B = DTH-RPLR-R2 with an E220-900T22S(JP)R2 module (sessions 8-10)", ""),
+    ("receiver_config", "string", "", "Receiver LoRa HAT configuration: A = DTH-RPLR with an E220-900T22S(JP) module (sessions 1-7), B = DTH-RPLR-R2 with an E220-900T22S(JP)R2 module (sessions 8-10)", ""),
 ]
 DATA_DICTIONARY_COLUMNS = ["column", "type", "unit", "definition", "missing_representation"]
 

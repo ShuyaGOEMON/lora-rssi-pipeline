@@ -65,7 +65,7 @@ COLUMN_ASSIGNMENT: dict[int, tuple[int, int, int, int]] = {
     10: (4, 3, 2, 1),
 }
 
-# Receiver LoRa HAT configuration: A = DTH-RPLR-R1 with an E220-900T22S(JP)
+# Receiver LoRa HAT configuration: A = DTH-RPLR with an E220-900T22S(JP)
 # module, B = DTH-RPLR-R2 with an E220-900T22S(JP)R2 module.
 RECEIVER_CONFIG: dict[int, str] = {s: ("A" if s <= 7 else "B") for s in SESSIONS}
 
