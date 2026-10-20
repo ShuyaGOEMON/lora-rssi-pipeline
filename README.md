@@ -14,27 +14,28 @@ lora-rssi-pipeline/
 │   ├── known_rp_rf_rp_classification.py
 │   ├── known_rp_mlp_rp_classification.py
 │   ├── unseen_rp_rf_floor_xy.py
-│   └── unseen_rp_mlp_floor_xy.py
+│   ├── unseen_rp_mlp_floor_xy.py
+│   └── requirements.txt         # requirements of the evaluation scripts
 ├── raw_logs/                    # place the ten session logs here (not tracked)
 ├── regenerated/                 # output of the pipeline (not tracked)
 ├── src/
 │   ├── config.py                # constants and session definitions (not run directly)
 │   ├── step1_build_dataset.py   # raw logs -> raw/rssi_samples.csv
 │   ├── step2_build_meta.py      # -> meta/tx_config.csv, meta/data_dictionary.csv
-│   └── step3_verify_dataset.py  # checks against the confirmed statistics and the published file
+│   ├── step3_verify_dataset.py  # checks against the confirmed statistics and the published file
+│   └── requirements.txt         # requirements of the pipeline
 ├── LICENSE
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 ## Requirements
 
 - The pipeline (`src/`) needs Python 3 with pandas 2.0 or later (`pandas.to_datetime(..., format="ISO8601")` is used).
 - Tested only with Python 3.13.14 and pandas 3.0.6.
-- The evaluation scripts (`evaluation/`) have their own requirements; see Baseline evaluation below.
+- The evaluation scripts (`evaluation/`) have their own requirements file, `evaluation/requirements.txt`; see Baseline evaluation below.
 
 ```
-pip install -r requirements.txt
+pip install -r src/requirements.txt
 ```
 
 ## Getting the data
@@ -103,7 +104,13 @@ The six scripts in `evaluation/` reproduce the baseline results of the dataset p
 | `unseen_rp_rf_floor_xy.py` | unseen RPs: GroupKFold, groups = RP key (floor, x, y) | RF | floor and (x, y) |
 | `unseen_rp_mlp_floor_xy.py` | unseen RPs: GroupKFold, groups = RP key (floor, x, y) | MLP | floor and (x, y) |
 
-Requirements: numpy, pandas, scikit-learn and matplotlib; the MLP scripts also need PyTorch and use a CUDA GPU if available. Tested only with Python 3.13.15, numpy 2.1.3, pandas 2.2.3, scikit-learn 1.6.1 and torch 2.11.0+cu130.
+Requirements: numpy 2.1.3, pandas 2.2.3, scikit-learn 1.6.1 (the versions used for the paper) and matplotlib. Install them from the repository root:
+
+```
+pip install -r evaluation/requirements.txt
+```
+
+The versions are pinned because the GroupKFold fold assignment and the random forest results may change with the scikit-learn version. The MLP scripts also need PyTorch (install the build for your platform and CUDA version) and use a CUDA GPU if available. Tested only with Python 3.13.15, numpy 2.1.3, pandas 2.2.3, scikit-learn 1.6.1 and torch 2.11.0+cu130.
 
 Usage (example):
 

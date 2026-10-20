@@ -1,11 +1,11 @@
 # Requirements of the evaluation scripts (evaluation/).
-# The pipeline (src/) uses requirements.txt in the repository root.
-# Environment used for the paper: Python 3.13.15, numpy 2.1.3, pandas 2.2.3,
-# scikit-learn 1.6.1, torch 2.11.0+cu130 (CUDA).
-# scikit-learn is pinned because the GroupKFold fold assignment and the
-# random forest results may change with its version.
-numpy
-pandas
+# The pipeline uses src/requirements.txt.
+# Versions pinned to the environment used for the paper (Python 3.13.15,
+# torch 2.11.0+cu130 (CUDA)). The GroupKFold fold assignment and the random
+# forest results may change with the scikit-learn version.
+# The matplotlib version was not recorded; it affects only the figures.
+numpy==2.1.3
+pandas==2.2.3
 scikit-learn==1.6.1
 matplotlib
 # The MLP scripts (*_mlp_*.py) also need PyTorch. Install the build for your
